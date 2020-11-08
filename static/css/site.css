@@ -1,0 +1,96 @@
+:root {
+  --var-border: 1px solid #606060;
+  --var-border-radius: 5px;
+  --var-message-color: #f4f4f4;
+  --var-link-color: #a9c8c3;
+  --var-contrast-color: #1bf7ec;
+  --var-background-color: #0F0F11;
+  --var-popout-color: #393940;
+  --var-max-height: 98vh;
+  --var-max-width: 98vw;
+}
+
+html {
+    background: var(--var-background-color);
+    font-family: "Hack";
+    font-size: 14px;
+}
+
+body {
+    height: var(--var-max-height);
+    margin-top: auto;
+}
+
+.main-window {
+  display: grid;
+  grid-template-columns: 5fr 1fr;
+  height: var(--var-max-height);
+  margin: 0 1vw;
+  max-height: var(--var-max-height);
+  max-width: var(--var-max-width);
+  width: var(--var-max-width);
+}
+
+
+#streamWrapper {
+    position: relative;
+    display: flex;
+}
+
+#streamWindow {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.75);
+    z-index: 3;
+    text-align: center;
+    vertical-align: middle;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+}
+
+#chatWindow {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    position: relative;
+    padding-top: 1vh;
+    max-height: calc(var(--var-max-height) - 1vh);
+    min-width: 300px;
+}
+
+#messages {
+    color: var(--var-message-color);
+    overflow-y: scroll;
+    border: var(--var-border);
+}
+
+#messages div {
+    padding: .1em .5em .15em .5em;
+    word-wrap: break-word;
+}
+
+#msgbox {
+    position: relative;
+    display: grid;
+}
+
+#msg {
+    background: transparent;
+    border: var(--var-border);
+    border-radius: var(--var-border-radius);
+    border-bottom-right-radius: 0px;
+    padding: 5px;
+    color: var(--var-message-color);
+    resize: none;
+}
+
+input[type=text] {
+    background: transparent;
+    border: var(--var-border);
+    border-radius: var(--var-border-radius);
+    color: var(--var-message-color);
+    padding: 5px;
+    font-weight: bold;
+}
