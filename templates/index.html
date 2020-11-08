@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <title>Stream</title>
+  <script src="//code.jquery.com/jquery-1.12.4.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/site.css') }}">
+  <script type="text/javascript" charset="utf-8" src="{{ url_for('static', filename='js/site.js') }}"></script>
+</head>
+
+<body>
+
+
+  <div class="main-window">
+    <div id="streamWrapper">
+      <div id="streamWindow">
+        <h1>STREAM</h1>
+      </div>
+    </div>
+    <div id="chatWindow">
+      <h1>CHAT</h1>
+      <div id="messages"></div>
+      <form id="send_msg" method="POST" action='#'>
+        <input type="text" name="msg_data" id="msg_data" placeholder="Message">
+        <input type="submit" value="Send">
+      </form>
+
+      <div id="joinbox">
+        <div style="color: #e5e0e5; text-align: center;">Please enter your name<br />to join the chat</div>
+        <div>
+          <form id="join" method="POST" action="#">
+          <input type="text" name="username" id="username" maxlength="18">
+          <input type = "submit" value="Join" />
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+
+</body>
+
+</html>
