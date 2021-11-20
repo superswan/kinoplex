@@ -3,8 +3,10 @@
 
 <head>
   <title>Stream</title>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/hack-font/3.3.0/web/hack.css'>
+  <link href="https://vjs.zencdn.net/7.17.0/video-js.css" rel="stylesheet" />
   <script src="//code.jquery.com/jquery-1.12.4.min.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.4.0/socket.io.js"></script>
   <link rel="stylesheet" href="{{ url_for('static', filename='css/site.css') }}">
   <script type="text/javascript" charset="utf-8" src="{{ url_for('static', filename='js/site.js') }}"></script>
 </head>
@@ -15,11 +17,27 @@
   <div class="main-window">
     <div id="streamWrapper">
       <div id="streamWindow">
-        <h1>STREAM</h1>
+        <video
+          id="streamPlayer"
+          class="video-js"
+          controls
+          preload="auto"
+          width=100%
+          height=100%
+          poster="{{ url_for('static', filename='img/video.gif') }}"
+          src="{{ url }}"
+          type="video/mp4">
+        <h1>Stream</h1>
+        <p class="vjs-no-js">
+            <h1>ENABLE JS</h1>
+        </p>
+        </video>
+
       </div>
     </div>
+
     <div id="chatWindow">
-      <h1>CHAT</h1>
+      <h1 id="chatTitle">CHAT</h1>
       <div id="messages"></div>
       <form id="send_msg" method="POST" action='#'>
         <input type="text" name="msg_data" id="msg_data" placeholder="Message">

@@ -9,6 +9,7 @@ async_mode = None
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'sbx91310'
 app.config['SESSION_TYPE'] = 'filesystem'
+sourceURL = 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4'
 Session(app)
 socketio = SocketIO(app, async_mode=async_mode, manage_session=False)
 thread = None
@@ -20,7 +21,8 @@ messages = []
 @app.route('/')
 def index():
   return render_template('index.html',
-                          sync_mode=socketio.async_mode)
+                          sync_mode=socketio.async_mode,
+                          url=sourceURL)
 
 @socketio.on('connect', namespace='/chat')
 def create_connection():
@@ -62,5 +64,5 @@ def display_msg():
 
 
 if __name__ == '__main__':
-  socketio.run(app, debug=True)
+  socketio.run(app, debug=False)
                           

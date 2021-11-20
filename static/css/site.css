@@ -12,8 +12,9 @@
 
 html {
     background: var(--var-background-color);
-    font-family: "Hack";
+    font-family: Hack;
     font-size: 14px;
+    color: #f1f1f1
 }
 
 body {
@@ -58,6 +59,10 @@ body {
     padding-top: 1vh;
     max-height: calc(var(--var-max-height) - 1vh);
     min-width: 300px;
+}
+
+#chatTitle {
+    font-weight: 600;
 }
 
 #messages {
